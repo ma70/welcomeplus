@@ -28,7 +28,7 @@ if(message.content.startsWith(prefix+"setWlc")) {
         if (!channel) return message.channel.send(`Check the room name`).then(msg => {msg.delete(5000)})
         WelcomerChat[message.guild.id].chattt = args
         message.channel.send(`The Welcomer Room Has Been Changed To : <#${args}>`).then(msg => {msg.delete(5000)})
-        fs.writeFile("../Room.json", JSON.stringify(WelcomerChat), (err) => {
+        fs.writeFile("./Room.json", JSON.stringify(WelcomerChat), (err) => {
     if (err) console.error(err)
   });
     }
