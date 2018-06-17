@@ -9,37 +9,10 @@ const fs = require("fs");//npm i fs
 
 const client = new Discord.Client();
 const prefix = '+'
-let WelcomerChat = JSON.parse(fs.readFileSync('./Room.json', 'utf8'));
-client.on('message', message => {
-if(!message.guild) return;
-if(message.author.bot)return;
-if (!WelcomerChat[message.guild.id]) WelcomerChat[message.guild.id] = {
-welc: 'welcome'
-};
-if(message.content.startsWith(prefix+"setWlc")) {
-        if (message.author.bot) return;
-        if (message.author.id === client.user.id) return;
-          if(!message.channel.guild) return;  
-        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`You Need Permission**\`ADMINISTRATOR\`**`).then(msg => {msg.delete(5000)})
-        let args = message.content.split(' ').slice(1).join(' ')
-        if(!args) return message.channel.send(`Please Typy The Room Name`).then(msg => {msg.delete(5000)})
-        if(args.length > 50) return message.channel.send(`Room name must not exceed 50 characters`).then(msg => {msg.delete(5000)})
-        let channel = message.client.channels.find('name', args);
-        if (!channel) return message.channel.send(`Check the room name`).then(msg => {msg.delete(5000)})
-        WelcomerChat[message.guild.id].chattt = args
-        message.channel.send(`The Welcomer Room Has Been Changed To : <#${args}>`).then(msg => {msg.delete(5000)})
-        fs.writeFile("./Room.json", JSON.stringify(WelcomerChat), (err) => {
-    if (err) console.error(err)
-  });
-    }
-});
+
 
 client.on('guildMemberAdd', member => {
-     if(!WelcomerChat[member.guild.id]) WelcomerChat[member.guild.id] = {
-  chattt: 'welcome'
-  }
-
-      const welcomer =  member.guild.channels.find('name', WelcomerChat[member.guild.id].chattt);
+      const welcomer =  member.guild.channels.find('name','welcome');
 
       var Canvas = require('canvas')
       var jimp = require('jimp')
@@ -98,10 +71,6 @@ client.on('guildMemberAdd', member => {
                                     ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
                               , 200, 190);
 
- client.sendFile(canvas.toBuffer())
-         fs.writeFile("./Room.json", JSON.stringify(WelcomerChat), (err) => {
-    if (err) console.error(err)
-  });
 
 
 
