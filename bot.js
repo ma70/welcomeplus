@@ -1,21 +1,23 @@
 const Discord = require("discord.js");//npm i --save discord.js
-
 var Canvas = require('canvas');//npm i canvas
 var jimp = require('jimp');//npm i jimp
 const fs = require("fs");//npm i fs
-
-
-
-
-const client = new Discord.Client();
+const bot = new Discord.Client();
 const prefix = '+'
 
 
-client.on('guildMemberAdd', member => {
-      const welcomer =  member.guild.channels.find('name','welcome');
 
-      var Canvas = require('canvas')
-      var jimp = require('jimp')
+
+
+
+bot.on('guildMemberAdd', member => {
+
+     if (member.guild.id === "457577473941438476") {
+    
+    
+var Canvas = require('canvas')
+var jimp = require('jimp')
+
 
       const w = ['./img/w1.png',
       './img/w2.png',
@@ -44,11 +46,11 @@ client.on('guildMemberAdd', member => {
 
       })
 
-                      let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".gif" : member.user.displayAvatarURL;
-                      jimp.read(url, (err, ava) => {
-                          if (err) return console.log(err);
-                          ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                              if (err) return console.log(err);
+                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
+                jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
 
                               //AVATAR�
                               let Avatar = Canvas.Image;
@@ -63,22 +65,22 @@ client.on('guildMemberAdd', member => {
                               ctx.textAlign = "center";
                                                          ctx.fillText(member.user.username, 200, 154);
 
-                              //NAME�
-                              ctx.font = '20px Arial';
-                              ctx.fontSize = '28px';
-                              ctx.fillStyle = "#FFFFFF";
-                              ctx.textAlign = "center";
-                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
-                              , 200, 190);
+                        
+                        
+bot.channels.get("457753370954825728").sendFile(canvas.toBuffer())
+bot.channels.get("457753370954825728").send(`**__WELCOME TO Plus Bot Support__**✨ ${member}`)
+
+
+
+})
+})
+
+}
+});
 
 
 
 
-      })
-      })
-      });
 
 
-
-
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
