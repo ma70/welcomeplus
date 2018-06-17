@@ -9,7 +9,7 @@ const fs = require("fs");//npm i fs
 
 const client = new Discord.Client();
 const prefix = '+'
-let WelcomerChat = JSON.parse(fs.readFileSync('../Room.json', 'utf8'));
+let WelcomerChat = JSON.parse(fs.readFileSync('./Room.json', 'utf8'));
 client.on('message', message => {
 if(!message.guild) return;
 if(message.author.bot)return;
@@ -99,7 +99,7 @@ client.on('guildMemberAdd', member => {
                               , 200, 190);
 
  client.sendFile(canvas.toBuffer())
-         fs.writeFile("../Room.json", JSON.stringify(WelcomerChat), (err) => {
+         fs.writeFile("./Room.json", JSON.stringify(WelcomerChat), (err) => {
     if (err) console.error(err)
   });
 
