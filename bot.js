@@ -12,7 +12,7 @@ const prefix = '+'
 
 bot.on('guildMemberAdd', member => {
 
-     if (member.guild.id === "457577473941438476") {
+     if (member.guild.id === "448590558160748545") {
     
     
 var Canvas = require('canvas')
@@ -68,7 +68,7 @@ var jimp = require('jimp')
                         
                         
 bot.channels.get("457753370954825728").sendFile(canvas.toBuffer())
-bot.channels.get("457753370954825728").send(`**__WELCOME TO Plus Bot Support__**✨ ${member}`)
+bot.channels.get("457753370954825728").send(`**__WELCOME TO Heroku & GitHub Shop__**✨ ${member}`)
 
 
 
