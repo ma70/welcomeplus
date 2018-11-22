@@ -67,8 +67,8 @@ var jimp = require('jimp')
 
                         
                         
-bot.channels.get("457753370954825728").sendFile(canvas.toBuffer())
-bot.channels.get("457753370954825728").send(`**__WELCOME TO Heroku & GitHub Shop__**✨ ${member}`)
+bot.channels.get("513795395223158795").sendFile(canvas.toBuffer())
+bot.channels.get("513795395223158795").send(`**__WELCOME TO Heroku & GitHub Shop__**✨ ${member}`)
 
 
 
